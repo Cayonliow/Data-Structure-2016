@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdbool.h>
-
-
+#include <string>
+using namespace std;
 
 char set[10];
 int order;
 bool det[10] = { 0 };
+string output[500];
+int count;
 
 void recursive(int depth){
   int i,j;
@@ -14,8 +16,9 @@ void recursive(int depth){
   {
     for ( i=0 ; i<order ; i++ )
       if (det[i])
-        printf("%c",set[i]);
-      printf("\n");
+       /* printf("%c",set[i]);
+      printf("\n");*/
+        output[count] = output[count] + set[i];
       return;
   }
 
@@ -34,7 +37,7 @@ int main(){
   char assist;
   int i;
   order = 0;
-
+  count = 0;
 
   while (1)
   {
