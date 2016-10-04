@@ -1,6 +1,8 @@
+#include <iostream> 
 #include <stdio.h>
 #include <stdbool.h>
 #include <string>
+#include <cmath>
 using namespace std;
 
 char set[10];
@@ -19,6 +21,7 @@ void recursive(int depth){
        /* printf("%c",set[i]);
       printf("\n");*/
         output[count] = output[count] + set[i];
+      count++;
       return;
   }
 
@@ -44,10 +47,30 @@ int main(){
     scanf("%c",&assist);
     scanf("%c",&set[order]);
     if (assist == '}') break;
-    if (set[order] == '}') return;
+    if (set[order] == '}') return 0 ;
     order++;
   }
   
   recursive(0);
 
+	cout<<"{}"<<endl;
+
+	for (int k = 1; k<=order;k++)
+	{
+		for (int j = pow(2,order)-1;j >=0 ;j--)
+		{
+			if (output[j].length()==k)
+			{
+				cout<<"{";
+				for (int g = 0; g < output[j].length(); g++)
+				{
+					cout<<output[j][g];
+					if ( g != output[j].length()-1 )
+						cout<<",";
+				}
+				cout<<"}";
+				cout<<endl;
+			}
+		}	
+	}	
 }
