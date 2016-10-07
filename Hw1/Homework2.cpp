@@ -1,3 +1,7 @@
+/*F74045034*/
+/*Lao Chon Lam*/
+/*Assignment1 - Hw2*/
+
 #include <iostream> 
 #include <stdio.h>
 #include <stdbool.h>
@@ -5,23 +9,21 @@
 #include <cmath>
 using namespace std;
 
-char set[10];
-int order;
-bool det[10] = { 0 };
+char set[10]; 
+int order; // The num of elements
+bool det[10] = { 0 };  //Turth Table
 string output[500];
 int count;
 
 void recursive(int depth){
   int i,j;
  
-  if (depth == order)
+  if (depth == order) //terminal condition
   {
     for ( i=0 ; i<order ; i++ )
-      if (det[i])
-       /* printf("%c",set[i]);
-      printf("\n");*/
-        output[count] = output[count] + set[i];
-      count++;
+      if (det[i])    
+        output[count] = output[count] + set[i]; //store the string for the later output
+      count++; //counter 
       return;
   }
 
@@ -43,7 +45,7 @@ int main(){
   count = 0;
 
   while (1)
-  {
+  {	/*read as char*/ 
     scanf("%c",&assist);
     scanf("%c",&set[order]);
     if (assist == '}') break;
@@ -51,21 +53,23 @@ int main(){
     order++;
   }
   
-  recursive(0);
+  recursive(0); // Start
 
 	cout<<"{}"<<endl;
 
+
+	/*Output in order*/
 	for (int k = 1; k<=order;k++)
 	{
 		for (int j = pow(2,order)-1;j >=0 ;j--)
 		{
 			if (output[j].length()==k)
-			{
+			{ /*Output as the form required*/
 				cout<<"{";
 				for (int g = 0; g < output[j].length(); g++)
 				{
 					cout<<output[j][g];
-					if ( g != output[j].length()-1 )
+					if ( g != output[j].length()-1 ) 
 						cout<<",";
 				}
 				cout<<"}";
@@ -73,4 +77,6 @@ int main(){
 			}
 		}	
 	}	
+	int out = pow(2,order); // Total count
+	printf("Powerset裡總共有%d個集合",out);
 }
