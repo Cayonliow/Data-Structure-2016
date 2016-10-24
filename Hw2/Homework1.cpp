@@ -47,6 +47,7 @@ int main(){
 		while ((as_i < n) && (j < n))
 		{
 			e[count] = value (n,a,b,as_i,j,e);
+			printf("e[%d]=%d		d(%d,%d)\n",count,e[count],as_i,j);
 			as_i++;j++;count++;
 		}
 	}		//lower + diagonal
@@ -57,10 +58,10 @@ int main(){
 		while ((as_j < n) && (i < n))
 		{
 			e[count] = value (n,a,b,i,as_j,e);
+			printf("e[%d]=%d		d(%d,%d)\n",count,e[count],i,as_j);
 			as_j++;i++;count++;
 		}
 	}		//upper
 	
-	for (i = 0;i < count; i++)
-	cout<<e[i]<<" ";
+
 }
