@@ -18,4 +18,4 @@ and print out e[] on the screen.
 
 Through generating the number 'k' to move randomly , then check the legality of 
 the step , if it does , move and repeat the process untill each elements (steps)
-of the count array are more then 1.
+of the count array are more than 1.
