@@ -39,7 +39,7 @@ int main(){
 	
 	printf("M: ");
 	scanf("%d",&m);
-	if (m<=2 || m > 20)
+	if (m<2 || m > 20)
 	{
 		printerror();
 		return 0;
@@ -70,8 +70,8 @@ int main(){
 	while(counter != n*m)
 	{
 		k = rand() % 8 ; //random!
-		if ( ((cur_pos.x + imove[k]) < n) && ((cur_pos.x + imove[k]) >= 0))		
-			if ( ((cur_pos.y + jmove[k]) < m) && ((cur_pos.y + jmove[k]) >= 0))  //conditions
+		if ( ((cur_pos.x + imove[k]) < n) && ((cur_pos.x + imove[k]) >= 0)) //		
+			if ( ((cur_pos.y + jmove[k]) < m) && ((cur_pos.y + jmove[k]) >= 0))  //conditions for legal step 
 				{
 					cur_pos.x = cur_pos.x + imove[k];
 					cur_pos.y = cur_pos.y + jmove[k];
